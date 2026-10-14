@@ -1,5 +1,3 @@
-# SPEC.md — Queueing-Based Limit Order Book
-
 ## 1. Project Overview
 
 **Project Title:** Bayesian Markov Chain Monte Carlo Calibration and Simulation of a Queueing-Based Limit Order Book
@@ -65,45 +63,17 @@ A queue is not allowed to remain at zero. Instead, the corresponding best price 
 
 If $Q_b$ reaches zero:
 
-1. Decrease the best bid by one tick:
-
-   $$
-   P_b \leftarrow P_b-1.
-   $$
-
-2. The spread increases by one tick:
-
-   $$
-   S \leftarrow S+1.
-   $$
-
-3. Redraw the bid queue:
-
-   $$
-   Q_b \leftarrow 1+\operatorname{Poisson}(m).
-   $$
+1. Decrease the best bid by one tick: $P_b \leftarrow P_b-1$.
+2. The spread increases by one tick: $S \leftarrow S+1$.
+3. Redraw the bid queue: $Q_b \leftarrow 1+\operatorname{Poisson}(m)$.
 
 ### 4.2 Ask-Side Depletion
 
 If $Q_a$ reaches zero:
 
-1. Increase the best ask by one tick:
-
-   $$
-   P_a \leftarrow P_a+1.
-   $$
-
-2. The spread increases by one tick:
-
-   $$
-   S \leftarrow S+1.
-   $$
-
-3. Redraw the ask queue:
-
-   $$
-   Q_a \leftarrow 1+\operatorname{Poisson}(m).
-   $$
+1. Increase the best ask by one tick: $P_a \leftarrow P_a+1$.
+2. The spread increases by one tick: $S \leftarrow S+1$.
+3. Redraw the ask queue: $Q_a \leftarrow 1+\operatorname{Poisson}(m)$.
 
 The replenishment draw represents the size of the queue at the next price level. It must be recorded in the event log.
 
