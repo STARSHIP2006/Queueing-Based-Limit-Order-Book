@@ -1,3 +1,5 @@
+# SPEC.md — Queueing-Based Limit Order Book
+
 ## 1. Project Overview
 
 **Project Title:** Bayesian Markov Chain Monte Carlo Calibration and Simulation of a Queueing-Based Limit Order Book
@@ -10,9 +12,9 @@ The project combines queueing theory, continuous-time Markov processes, Bayesian
 
 The limit order book state at time $t$ is defined as
 
-$$
+```math
 X_t = (Q_b, Q_a, P_b, P_a),
-$$
+```
 
 where:
 
@@ -125,17 +127,17 @@ M1 extends M0 by introducing queue-size dependence in the buy and sell limit-ord
 
 The limit-order intensities are
 
-$$
+```math
 \lambda_b(Q_b)
 =
 \exp\left(\theta_b+\gamma_b\log(1+Q_b)\right),
-$$
+```
 
-$$
+```math
 \lambda_a(Q_a)
 =
 \exp\left(\theta_a+\gamma_a\log(1+Q_a)\right).
-$$
+```
 
 All other event intensities retain their M0 specifications.
 
@@ -143,17 +145,17 @@ All other event intensities retain their M0 specifications.
 
 M2 extends M1 by introducing cancellation intensities proportional to the corresponding queue sizes:
 
-$$
+```math
 \lambda_{cb}(Q_b)=\exp(\theta_{cb})Q_b,
-$$
+```
 
-$$
+```math
 \lambda_{ca}(Q_a)=\exp(\theta_{ca})Q_a.
-$$
+```
 
 M2 is the full structural model and contains ten event-intensity parameters:
 
-$$
+```math
 \Theta =
 (
 \theta_b,\gamma_b,
@@ -162,7 +164,7 @@ $$
 \theta_{cb},\theta_{ca},
 \theta_{ib},\theta_{ia}
 ).
-$$
+```
 
 ### M3 — Hierarchical Session-Activity Model
 
@@ -170,23 +172,23 @@ M3 extends M2 by introducing a session-level latent activity multiplier that aff
 
 For session $s$,
 
-$$
+```math
 \eta_s \sim \mathcal{N}(0,\sigma_\eta^2).
-$$
+```
 
 Every event intensity in session $s$ is multiplied by
 
-$$
+```math
 \exp(\eta_s).
-$$
+```
 
 Thus, the session-specific intensity is
 
-$$
+```math
 \lambda_e^{(s)}(X_t)
 =
 \exp(\eta_s)\lambda_e(X_t;\Theta).
-$$
+```
 
 The initial specification uses eight sessions.
 
@@ -211,21 +213,21 @@ The following values define the initial data-generating configuration.
 
 For the market-order intensities,
 
-$$
+```math
 \exp(\theta_{mb})=\exp(\theta_{ma})=0.8.
-$$
+```
 
 For the cancellation coefficients,
 
-$$
+```math
 \exp(\theta_{cb})=\exp(\theta_{ca})=0.1.
-$$
+```
 
 For the inside-spread intensities,
 
-$$
+```math
 \exp(\theta_{ib})=\exp(\theta_{ia})=1.0.
-$$
+```
 
 The simulator must undergo a sanity check before the inference experiments begin.
 
@@ -243,25 +245,25 @@ All simulation configurations and random seeds must be recorded.
 
 For the non-conjugate parameterization, use the following priors:
 
-$$
+```math
 \theta \sim \mathcal{N}(0,2^2),
-$$
+```
 
-$$
+```math
 \gamma \sim \mathcal{N}(0,1),
-$$
+```
 
-$$
+```math
 \sigma_\eta \sim \operatorname{HalfNormal}(0.5).
-$$
+```
 
 The session-level latent activity effects satisfy
 
-$$
+```math
 \eta_s\mid\sigma_\eta
 \sim
 \mathcal{N}(0,\sigma_\eta^2).
-$$
+```
 
 For validation against exact analytical results, Gamma priors should be used for positive intensity coefficients wherever conjugacy applies.
 
@@ -275,14 +277,14 @@ Let $N_e(T)$ be the number of observed events of type $e$ in the observation int
 
 For an intensity function $\lambda_e(X_t;\phi_e)$, the event-specific log-likelihood is
 
-$$
+```math
 \ell_e(\phi_e)
 =
 \sum_{k:e_k=e}
 \log \lambda_e(X_{t_k^-};\phi_e)
 -
 \int_0^T \lambda_e(X_t;\phi_e)\,dt,
-$$
+```
 
 where:
 
@@ -293,11 +295,11 @@ where:
 
 The total log-likelihood is
 
-$$
+```math
 \ell(\Theta)
 =
 \sum_e \ell_e(\phi_e).
-$$
+```
 
 The intensity must be evaluated using the state immediately before each event.
 
@@ -311,11 +313,11 @@ An important theoretical result is that, under independent priors and the specif
 
 For M0–M2,
 
-$$
+```math
 p(\Theta\mid\mathcal{D})
 \propto
 \prod_e p(\phi_e\mid\mathcal{D}),
-$$
+```
 
 where $\mathcal{D}$ denotes the observed event log.
 
@@ -325,19 +327,19 @@ This factorization allows the event-specific posterior distributions to be estim
 
 For an event intensity of the form
 
-$$
+```math
 \lambda_e(X_t)=r_e g_e(X_t),
-$$
+```
 
 where $r_e>0$ is an unknown coefficient and $g_e(X_t)$ is a known exposure function, assume
 
-$$
+```math
 r_e\sim\operatorname{Gamma}(\alpha_e,\beta_e).
-$$
+```
 
 Using the shape-rate parameterization, the posterior is
 
-$$
+```math
 \boxed{
 r_e\mid\mathcal{D}
 \sim
@@ -347,7 +349,7 @@ r_e\mid\mathcal{D}
 \beta_e+\int_0^T g_e(X_t)\,dt
 \right)
 }
-$$
+```
 
 where $n_e=N_e(T)$.
 
@@ -364,11 +366,11 @@ The exact Gamma posterior provides a benchmark for validating the likelihood and
 
 The queue-dependent limit-order intensities depend on the pairs
 
-$$
+```math
 (\theta_b,\gamma_b)
 \quad\text{and}\quad
 (\theta_a,\gamma_a).
-$$
+```
 
 These pairs are non-conjugate under the specified Normal priors.
 
@@ -388,35 +390,35 @@ Consequently, MCMC is needed for practical joint posterior inference over the st
 
 Whenever a queue is depleted, the size of the new queue is generated as
 
-$$
+```math
 Q_{\mathrm{new}}=1+Y,
 \qquad
 Y\sim\operatorname{Poisson}(m).
-$$
+```
 
 For each observed depletion, define
 
-$$
+```math
 Y_i=Q_{\mathrm{new},i}-1.
-$$
+```
 
 Conditional on the observed depletion events, the replenishment observations satisfy
 
-$$
+```math
 Y_i\overset{\mathrm{iid}}{\sim}\operatorname{Poisson}(m).
-$$
+```
 
 Use a Gamma prior
 
-$$
+```math
 m\sim\operatorname{Gamma}(\alpha_m,\beta_m),
-$$
+```
 
 with shape-rate parameters.
 
 If there are $n$ observed replenishment draws and their total is $\sum_{i=1}^n Y_i$, the posterior is
 
-$$
+```math
 m\mid\{Y_i\}_{i=1}^n
 \sim
 \operatorname{Gamma}
@@ -424,7 +426,7 @@ m\mid\{Y_i\}_{i=1}^n
 \alpha_m+\sum_{i=1}^nY_i,\,
 \beta_m+n
 \right).
-$$
+```
 
 This parameter is estimated separately from the eight event intensities and is used to generate queue sizes during subsequent simulations.
 
@@ -434,27 +436,27 @@ Experiment 5 introduces unobserved, time-varying market activity through a two-r
 
 Let
 
-$$
+```math
 Z_t\in\{0,1\}
-$$
+```
 
 denote the latent regime. The activity multiplier is
 
-$$
+```math
 a(Z_t)=
 \begin{cases}
 0.5,&Z_t=0,\\
 2.0,&Z_t=1.
 \end{cases}
-$$
+```
 
 The true event intensities become
 
-$$
+```math
 \lambda_e^{\mathrm{true}}(X_t)
 =
 a(Z_t)\lambda_e(X_t;\Theta).
-$$
+```
 
 The regime process should be configured to have a mean regime duration of approximately 60 seconds.
 
