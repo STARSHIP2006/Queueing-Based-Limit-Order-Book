@@ -1,3 +1,5 @@
+# SPEC.md — Queueing-Based Limit Order Book
+
 ## 1. Project Overview
 
 **Project Title:** Bayesian Markov Chain Monte Carlo Calibration and Simulation of a Queueing-Based Limit Order Book
