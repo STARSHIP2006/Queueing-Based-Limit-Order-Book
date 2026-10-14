@@ -65,7 +65,7 @@ If $Q_b$ reaches zero:
 
 1. Decrease the best bid by one tick: $P_b \leftarrow P_b-1$.
 2. The spread increases by one tick: $S \leftarrow S+1$.
-3. Redraw the bid queue: $Q_b \leftarrow 1+\operatorname{Poisson}(m)$.
+3. Redraw the bid queue: $Q_b \leftarrow 1+\mathrm{Poisson}(m)$.
 
 ### 4.2 Ask-Side Depletion
 
@@ -73,7 +73,7 @@ If $Q_a$ reaches zero:
 
 1. Increase the best ask by one tick: $P_a \leftarrow P_a+1$.
 2. The spread increases by one tick: $S \leftarrow S+1$.
-3. Redraw the ask queue: $Q_a \leftarrow 1+\operatorname{Poisson}(m)$.
+3. Redraw the ask queue: $Q_a \leftarrow 1+\mathrm{Poisson}(m)$.
 
 The replenishment draw represents the size of the queue at the next price level. It must be recorded in the event log.
 
@@ -224,7 +224,7 @@ For the non-conjugate parameterization, use the following priors:
 ```
 
 ```math
-\sigma_\eta \sim \operatorname{HalfNormal}(0.5).
+\sigma_\eta \sim \mathrm{HalfNormal}(0.5).
 ```
 
 The session-level latent activity effects satisfy
@@ -304,7 +304,7 @@ For an event intensity of the form
 where $r_e>0$ is an unknown coefficient and $g_e(X_t)$ is a known exposure function, assume
 
 ```math
-r_e\sim\operatorname{Gamma}(\alpha_e,\beta_e).
+r_e\sim\mathrm{Gamma}(\alpha_e,\beta_e).
 ```
 
 Using the shape-rate parameterization, the posterior is
@@ -313,7 +313,7 @@ Using the shape-rate parameterization, the posterior is
 \boxed{
 r_e\mid\mathcal{D}
 \sim
-\operatorname{Gamma}
+\mathrm{Gamma}
 \left(
 \alpha_e+n_e,\,
 \beta_e+\int_0^T g_e(X_t)\,dt
@@ -363,7 +363,7 @@ Whenever a queue is depleted, the size of the new queue is generated as
 ```math
 Q_{\mathrm{new}}=1+Y,
 \qquad
-Y\sim\operatorname{Poisson}(m).
+Y\sim\mathrm{Poisson}(m).
 ```
 
 For each observed depletion, define
@@ -375,13 +375,13 @@ Y_i=Q_{\mathrm{new},i}-1.
 Conditional on the observed depletion events, the replenishment observations satisfy
 
 ```math
-Y_i\overset{\mathrm{iid}}{\sim}\operatorname{Poisson}(m).
+Y_i\overset{\mathrm{iid}}{\sim}\mathrm{Poisson}(m).
 ```
 
 Use a Gamma prior
 
 ```math
-m\sim\operatorname{Gamma}(\alpha_m,\beta_m),
+m\sim\mathrm{Gamma}(\alpha_m,\beta_m),
 ```
 
 with shape-rate parameters.
@@ -391,7 +391,7 @@ If there are $n$ observed replenishment draws and their total is $\sum_{i=1}^n Y
 ```math
 m\mid\{Y_i\}_{i=1}^n
 \sim
-\operatorname{Gamma}
+\mathrm{Gamma}
 \left(
 \alpha_m+\sum_{i=1}^nY_i,\,
 \beta_m+n
