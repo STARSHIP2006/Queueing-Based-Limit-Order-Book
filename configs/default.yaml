@@ -1,0 +1,66 @@
+project:
+  title: "Bayesian MCMC Calibration, Kalman Filtering, and Simulation of a Queueing-Based Limit Order Book"
+  random_seed: 2026
+
+model:
+  m: 5.0
+  initial_state:
+    Qb: 5
+    Qa: 5
+    Pb: 99
+    Pa: 101
+  parameters:
+    theta_b: 0.7
+    gamma_b: -0.3
+    theta_a: 0.6
+    gamma_a: -0.3
+    theta_mb: -0.2231435513142097
+    theta_ma: -0.2231435513142097
+    theta_cb: -2.3025850929940455
+    theta_ca: -2.3025850929940455
+    theta_ib: 0.0
+    theta_ia: 0.0
+
+simulation:
+  sanity_horizon: 3000.0
+  inference_horizon: 1200.0
+  predictive_horizon: 600.0
+  session: 0
+
+priors:
+  scalar_log_rate_sd: 2.0
+  queue_gamma_sd: 1.0
+  replenishment_m:
+    alpha: 2.0
+    beta: 0.4
+  conjugate_rate:
+    alpha: 2.0
+    beta: 2.0
+
+mcmc:
+  samples: 600
+  burn_in: 200
+  chains: 4
+  proposal_sd_scalar: 0.12
+
+grid:
+  theta_min: -3.0
+  theta_max: 3.0
+  theta_points: 121
+  gamma_min: -2.5
+  gamma_max: 2.5
+  gamma_points: 121
+
+kalman:
+  bin_width: 5.0
+  n_bins: 240
+  rho: 0.97
+  q: 0.025
+  initial_h: 0.0
+  initial_variance: 1.0
+  stress_mean_regime_duration: 60.0
+  stress_low_multiplier: 0.5
+  stress_high_multiplier: 2.0
+
+posterior_predictive:
+  n_simulations: 30
