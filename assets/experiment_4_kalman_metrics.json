@@ -1,0 +1,11 @@
+{
+  "baseline_parameter_mode": "known generating parameters in a controlled synthetic experiment",
+  "rmse_log_activity": 0.2301322942596753,
+  "rmse_activity_multiplier": 0.1321145443141835,
+  "nominal_95_percent_interval_coverage": 0.875,
+  "n_events": 4413,
+  "n_bins": 240,
+  "bin_width": 5.0,
+  "rho": 0.97,
+  "q": 0.025
+}

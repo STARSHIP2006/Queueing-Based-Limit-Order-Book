@@ -1,0 +1,16 @@
+{
+  "n_events": 15038.0,
+  "mean_Qb_before": 5.039632929910892,
+  "mean_Qa_before": 4.813007048809682,
+  "mean_spread_before": 1.0950924325043223,
+  "bid_depletions": 179.0,
+  "ask_depletions": 205.0,
+  "price_changes": 769.0,
+  "event_rate": 5.012666666666667,
+  "horizon": 3000.0,
+  "seed": 2026,
+  "mean_bid_queue_after": 5.039499933501795,
+  "mean_ask_queue_after": 4.812940550605133,
+  "estimated_bid_depletion_interval_seconds": 16.75977653631285,
+  "estimated_ask_depletion_interval_seconds": 14.634146341463415
+}

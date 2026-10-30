@@ -1,0 +1,128 @@
+{
+  "conjugate_gamma_posteriors": {
+    "market_sell": {
+      "alpha_prior": 2.0,
+      "beta_prior": 2.0,
+      "count": 983,
+      "exposure": 1200.0,
+      "alpha_posterior": 985.0,
+      "beta_posterior": 1202.0,
+      "mean": 0.8194675540765392,
+      "variance": 0.0006817533727758229
+    },
+    "market_buy": {
+      "alpha_prior": 2.0,
+      "beta_prior": 2.0,
+      "count": 1003,
+      "exposure": 1200.0,
+      "alpha_posterior": 1005.0,
+      "beta_posterior": 1202.0,
+      "mean": 0.8361064891846922,
+      "variance": 0.0006955960808524893
+    },
+    "cancel_bid": {
+      "alpha_prior": 2.0,
+      "beta_prior": 2.0,
+      "count": 583,
+      "exposure": 5983.076371209866,
+      "alpha_posterior": 585.0,
+      "beta_posterior": 5985.076371209866,
+      "mean": 0.09774311365750274,
+      "variance": 1.6331138918741023e-05
+    },
+    "cancel_ask": {
+      "alpha_prior": 2.0,
+      "beta_prior": 2.0,
+      "count": 534,
+      "exposure": 5011.54869309226,
+      "alpha_posterior": 536.0,
+      "beta_posterior": 5013.54869309226,
+      "mean": 0.1069103010285925,
+      "variance": 2.1324276988851243e-05
+    },
+    "inside_buy": {
+      "alpha_prior": 2.0,
+      "beta_prior": 2.0,
+      "count": 89,
+      "exposure": 97.3421044226469,
+      "alpha_posterior": 91.0,
+      "beta_posterior": 99.3421044226469,
+      "mean": 0.9160264978165173,
+      "variance": 0.009220929062659276
+    },
+    "inside_sell": {
+      "alpha_prior": 2.0,
+      "beta_prior": 2.0,
+      "count": 105,
+      "exposure": 97.3421044226469,
+      "alpha_posterior": 107.0,
+      "beta_posterior": 99.3421044226469,
+      "mean": 1.0770861018282127,
+      "variance": 0.010842191315434534
+    },
+    "queue_replenishment_m": {
+      "alpha_prior": 2.0,
+      "beta_prior": 0.4,
+      "n": 193,
+      "sum_y": 971.0,
+      "alpha_posterior": 973.0,
+      "beta_posterior": 193.4,
+      "mean": 5.031023784901758,
+      "variance": 0.0260135666230701
+    }
+  },
+  "queue_parameter_grid_mcmc_comparison": {
+    "bid": {
+      "grid_summary": {
+        "theta_mean": 0.5225477350505634,
+        "theta_sd": 0.0922090330117571,
+        "theta_ci95": [
+          0.3500000000000001,
+          0.7000000000000002
+        ],
+        "gamma_mean": -0.19340251073318365,
+        "gamma_sd": 0.053906519559480025,
+        "gamma_ci95": [
+          -0.29166666666666696,
+          -0.09466971087146565
+        ]
+      },
+      "mcmc_mean": [
+        0.5222626399758237,
+        -0.1963444542108861
+      ],
+      "mcmc_sd": [
+        0.10178650221184424,
+        0.05754988888157255
+      ],
+      "acceptance": 0.375
+    },
+    "ask": {
+      "grid_summary": {
+        "theta_mean": 0.7381524790442251,
+        "theta_sd": 0.0926746280680057,
+        "theta_ci95": [
+          0.5500000000000003,
+          0.9000000000000004
+        ],
+        "gamma_mean": -0.4067615394928657,
+        "gamma_sd": 0.06030259830729136,
+        "gamma_ci95": [
+          -0.5416666666666667,
+          -0.29166666666666696
+        ]
+      },
+      "mcmc_mean": [
+        0.7511909695406054,
+        -0.41667272792250576
+      ],
+      "mcmc_sd": [
+        0.09220725486916602,
+        0.05921453782386222
+      ],
+      "acceptance": 0.36375
+    }
+  },
+  "n_events": 6123,
+  "horizon": 1200.0
+}

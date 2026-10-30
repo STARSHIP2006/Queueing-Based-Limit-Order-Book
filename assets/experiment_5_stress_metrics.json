@@ -1,0 +1,10 @@
+{
+  "activity_multiplier_rmse": 0.30710748721987813,
+  "low_high_classification_accuracy": 0.9458333333333333,
+  "mean_transition_response_lag_seconds": 2.857142857142857,
+  "number_of_evaluated_transitions": 28,
+  "n_events": 8222,
+  "n_bins": 240,
+  "mean_regime_duration_target_seconds": 60.0,
+  "note": "Regime labels are retained only for evaluation; the filter receives only transformed event counts."
+}
