@@ -559,4 +559,8 @@ It does not attempt to reproduce every feature of a real exchange, including:
 
 The Kalman filter operates on aggregated, transformed event counts and uses an approximate Gaussian observation model. It is designed to track broad changes in market activity, not to provide an exact filter for the underlying Poisson event process. Performance may deteriorate when bins contain very few events or when activity changes abruptly.
 
+<<<<<<< HEAD
 The results should be interpreted as a study of stochastic market dynamics, Bayesian parameter estimation, and approximate latent-state tracking rather than as a calibrated production trading system.
+=======
+The results should be interpreted as a study of stochastic market dynamics, Bayesian parameter estimation, and approximate latent-state tracking rather than as a calibrated production trading system.
+>>>>>>> 7b69e6dbfc4f2100a133dbb83f50c1bce9328488
